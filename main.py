@@ -7,7 +7,7 @@ from database import database
 from routers.conversations import conversations
 import os
 from dotenv import load_dotenv
-load_dotenv
+load_dotenv()
 
 app = FastAPI()
 
