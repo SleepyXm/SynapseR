@@ -13,7 +13,7 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[os.getenv("DEV_SERVER"), os.getenv("FRONT-END-PROD")],
+    allow_origins=[os.getenv("DEV_SERVER"), os.getenv("FRONT-END-PROD"), "https://synapse-eight-lilac.vercel.app/"],
     allow_credentials=True,
     allow_methods=["GET", "POST", "DELETE", "PUT"],
     allow_headers=["Authorization", "Content-Type"],
