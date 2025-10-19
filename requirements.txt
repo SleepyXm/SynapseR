@@ -1,0 +1,10 @@
+passlib
+python-jose[cryptography]
+python-jose
+PyJWT
+databases
+fastapi
+pydantic
+asyncpg
+bcrypt=4.3.0
+langchain
