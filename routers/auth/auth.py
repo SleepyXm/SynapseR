@@ -61,8 +61,8 @@ async def login(user: UserLogin, response: Response):
         max_age=60 * 60 * 24 * 7,  # 7 days expiry
         expires=60 * 60 * 24 * 7,
         path="/",
-        secure=False,  # Set True in production with HTTPS
-        samesite="lax",
+        secure=True,  # Set True in production with HTTPS
+        samesite="None",
         domain="localhost",
     )
 
