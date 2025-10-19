@@ -11,3 +11,4 @@ langchain
 uvicorn
 dotenv
 openai
+beautifulsoup4
