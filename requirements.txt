@@ -6,5 +6,5 @@ databases
 fastapi
 pydantic
 asyncpg
-bcrypt=4.3.0
+bcrypt='4.3.0'
 langchain
