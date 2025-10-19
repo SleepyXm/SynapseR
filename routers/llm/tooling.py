@@ -4,7 +4,7 @@
 #from langchain.chains import RetrievalQA
 from search import get_top_paragraphs, should_search
 from typing import List
-from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.embeddings import OpenAIEmbeddings
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 import PyPDF2
 
