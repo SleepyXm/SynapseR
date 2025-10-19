@@ -9,3 +9,4 @@ asyncpg
 bcrypt==4.3.0
 langchain
 uvicorn
+dontenv
