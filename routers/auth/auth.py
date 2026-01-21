@@ -63,7 +63,7 @@ async def login(user: UserLogin, response: Response):
         path="/",
         secure=True,  # Set True in production with HTTPS
         samesite="None",
-        domain=None,
+        domain="synapse.cogneurax.com",
     )
 
 
