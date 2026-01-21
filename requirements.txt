@@ -13,3 +13,4 @@ dotenv
 openai
 beautifulsoup4
 PyPDF2
+pydantic-settings
