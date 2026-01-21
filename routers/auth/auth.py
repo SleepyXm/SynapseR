@@ -56,7 +56,7 @@ async def login(user: UserLogin, response: Response):
     resp = JSONResponse(content={"message": "Login successful", "token": access_token})
     resp.set_cookie(
         key="access_token",
-        value=f"Bearer {access_token}",
+        value=access_token,
         httponly=True,
         max_age=60 * 60 * 24 * 7,  # 7 days expiry
         expires=60 * 60 * 24 * 7,
