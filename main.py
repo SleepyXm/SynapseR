@@ -7,9 +7,16 @@ from database import database
 from routers.conversations import conversations
 import os
 from dotenv import load_dotenv
+from pydantic import BaseSettings
+
 load_dotenv()
 
-app = FastAPI()
+class Settings(BaseSettings):
+    openapi_url: str = ""
+
+settings = Settings()
+
+app = FastAPI(openapi_url=settings.openapi_url)
 
 app.add_middleware(
     CORSMiddleware,
