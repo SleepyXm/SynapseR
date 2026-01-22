@@ -119,11 +119,11 @@ async def remove_hf_token(req: HFTokenRequest, current_user: dict = Depends(get_
 
 @router.post("/add_fav")
 async def add_fav(req: FavLLM, current_user: dict = Depends(get_current_user)):
-    # 1️⃣ Check if the LLM already exists in the database
+    # Check if the LLM already exists in the database
     query_check = "SELECT id FROM llms WHERE name = :hf_id"
     llm = await database.fetch_one(query=query_check, values={"hf_id": req.hf_id})
 
-    # 2️⃣ If not, insert it with a UUID as primary key
+    # If not, insert it with a UUID as primary key
     if not llm:
         llm_uuid = str(uuid4())
         query_insert = """
@@ -138,7 +138,7 @@ async def add_fav(req: FavLLM, current_user: dict = Depends(get_current_user)):
     else:
         llm_id_to_use = llm["id"]
 
-    # 3️⃣ Add the LLM UUID to the user's favorites if not already present
+    # Add the LLM UUID to the user's favorites if not already present
     query_update = """
     UPDATE users
     SET favorites = array_append(favorites, :llm_id)
@@ -157,7 +157,7 @@ async def add_fav(req: FavLLM, current_user: dict = Depends(get_current_user)):
 
 @router.post("/remove_fav")
 async def remove_fav(req: FavLLM, current_user: dict = Depends(get_current_user)):
-    # 1️⃣ Look up the LLM in the database
+    # Look up the LLM in the database
     query_check = "SELECT id FROM llms WHERE name = :hf_id"
     llm = await database.fetch_one(query=query_check, values={"hf_id": req.hf_id})
 
@@ -166,7 +166,7 @@ async def remove_fav(req: FavLLM, current_user: dict = Depends(get_current_user)
 
     llm_id_to_remove = llm["id"]
 
-    # 2️⃣ Remove the LLM UUID from the user's favorites
+    # Remove the LLM UUID from the user's favorites
     query_update = """
     UPDATE users
     SET favorites = array_remove(favorites, :llm_id)
